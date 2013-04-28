@@ -15,7 +15,7 @@ var player = {
 	loc : new Point(0, 0),
 	lives : 5,
 	step : 2,
-	maxVelocity : 5,
+	maxVelocity : 4,
 	vel : new Point(0, 0)
 };
 

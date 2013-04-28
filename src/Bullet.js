@@ -2,6 +2,7 @@ import animate;
 import ui.View;
 import device;
 import math.util as util;
+import src.soundcontroller as soundcontroller;
 
 exports = Class(ui.View, function (supr) {
 
@@ -24,11 +25,14 @@ exports = Class(ui.View, function (supr) {
 	};
 
 	this.startNewAnimation = function () {
-		this._animator.now({x: device.width + this.style.x}, 2000, animate.linear)
+		this._animator.now({x: device.width + this.style.x}, 1500, animate.linear)
 		.then(this.outOfScreen);
 	};
 
+	var sound = soundcontroller.getSound();
+
 	this.resetAnimation = function(x, y) {
+		sound.play('laser');
 		this.active = true;
 		this.updateOpts({
 			x : x,

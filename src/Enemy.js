@@ -2,6 +2,7 @@ import animate;
 import ui.ImageView;
 import device;
 import math.util as util;
+import src.soundcontroller as soundcontroller;
 
 var color = ['#999999', '#777777', '#555555', '#333333'];
 
@@ -66,7 +67,10 @@ exports = Class(ui.ImageView, function (supr) {
 		this._animator = animate(this);
 	};
 
+	var sound = soundcontroller.getSound();
+
 	this.die = function() {
+		sound.play('enemy_out');
 		this.dead = true;
 		this._animator.now({opacity: 0.0, scale: 1.2}, 500);
 	}
